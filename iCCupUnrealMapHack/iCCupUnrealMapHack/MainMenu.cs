@@ -454,39 +454,6 @@ namespace iCCupUnrealMapHack
             }
         }
 
-        private void StartFullMapHack_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show("Main hack disabled in this build");
-            return;
-            bool problem = false;
-            string idstr = ProcessHelper.ID();
-
-           // if (licencekey2.IndexOf(ProcessHelper.GetHash(ProcessHelper.ID())) > -1)
-            {
-                MaphackProfileStruct selectedmhprofileformaphack = new MaphackProfileStruct();
-                if (selectedprofile < MaphackProfileStructListLength)
-                    selectedmhprofileformaphack = MaphackProfileStructList[selectedprofile];
-                MainHack minihack = null;
-                minihack = new MainHack(selectedmhprofileformaphack);
-                problem = false;
-
-                this.Visible = false;
-                this.Enabled = false;
-
-                if (!problem)
-                {
-                    minihack.ShowDialog();
-                }
-
-                this.Visible = true;
-                this.Enabled = true;
-
-                minihack.Dispose();
-
-            }
-        }
-
-
         public static List<Image> GetImageFrames(Image originalImg)
         {
             if (originalImg == null)
@@ -2202,6 +2169,36 @@ namespace iCCupUnrealMapHack
         private void ChangeMinimapImageHotkey_TextChanged_1(object sender, EventArgs e)
         {
 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            bool problem = false;
+            string idstr = ProcessHelper.ID();
+
+            // if (licencekey2.IndexOf(ProcessHelper.GetHash(ProcessHelper.ID())) > -1)
+            {
+                MaphackProfileStruct selectedmhprofileformaphack = new MaphackProfileStruct();
+                if (selectedprofile < MaphackProfileStructListLength)
+                    selectedmhprofileformaphack = MaphackProfileStructList[selectedprofile];
+                MainHack minihack = null;
+                minihack = new MainHack(selectedmhprofileformaphack);
+                problem = false;
+
+                this.Visible = false;
+                this.Enabled = false;
+
+                if (!problem)
+                {
+                    minihack.ShowDialog();
+                }
+
+                this.Visible = true;
+                this.Enabled = true;
+
+                minihack.Dispose();
+
+            }
         }
     }
 

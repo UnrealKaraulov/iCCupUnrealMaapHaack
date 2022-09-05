@@ -68,6 +68,7 @@
             this.SkipMinimapSettingsSave = new System.Windows.Forms.CheckBox();
             this.ChangeMinimapImageLabel = new System.Windows.Forms.CheckBox();
             this.ChangeMinimapImageHotkey = new System.Windows.Forms.TextBox();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.LeftProfileArrow)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.RightProfileArrow)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TSelectedProfile)).BeginInit();
@@ -566,13 +567,24 @@
             this.ChangeMinimapImageHotkey.TextChanged += new System.EventHandler(this.ChangeMinimapImageHotkey_TextChanged_1);
             this.ChangeMinimapImageHotkey.KeyDown += new System.Windows.Forms.KeyEventHandler(this.ChangeMinimapImageHotkey_KeyDown);
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(176, 421);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 8;
+            this.button1.Text = "maphack";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // MainMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::iCCupUnrealMapHack.Properties.Resources.background;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(497, 436);
+            this.ClientSize = new System.Drawing.Size(497, 470);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.ChangeMinimapImageHotkey);
             this.Controls.Add(this.MaphackHotkey);
             this.Controls.Add(this.SkipMinimapSettingsSave);
@@ -666,6 +678,7 @@
         private System.Windows.Forms.CheckBox SkipMinimapSettingsSave;
         private System.Windows.Forms.CheckBox ChangeMinimapImageLabel;
         private System.Windows.Forms.TextBox ChangeMinimapImageHotkey;
+        private System.Windows.Forms.Button button1;
     }
 }
 
