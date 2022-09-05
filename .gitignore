@@ -14,10 +14,6 @@
 *.userprefs
 
 # Build results
-[Dd]ebug/
-[Dd]ebugPublic/
-[Rr]elease/
-[Rr]eleases/
 x64/
 x86/
 bld/
@@ -332,3 +328,4 @@ ASALocalRun/
 
 # Local History for Visual Studio
 .localhistory/
+*.tlog

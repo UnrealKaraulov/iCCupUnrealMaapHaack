@@ -1,0 +1,184 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Mailgun</name>
+    </assembly>
+    <members>
+        <member name="T:Mailgun.Attachments.MailgunAttachment">
+            <summary>
+            A generic email attachment from a stream. Can be extended to provide mroe specific attachment types or used as-is.
+            </summary>
+        </member>
+        <member name="M:Mailgun.Attachments.MailgunAttachment.#ctor(System.String,System.IO.Stream)">
+            <summary>
+            Constructs a new MailgunAttachment with the specified name and content stream.
+            </summary>
+            <param name="filename"></param>
+            <param name="fileContentStream"></param>
+        </member>
+        <member name="P:Mailgun.Attachments.MailgunAttachment.FileName">
+            <summary>
+            Gets or sets the name of the attachment.
+            </summary>
+        </member>
+        <member name="P:Mailgun.Attachments.MailgunAttachment.FileContentStream">
+            <summary>
+            Gets or sets the stream containing the attachment contents.
+            </summary>
+        </member>
+        <member name="T:Mailgun.Attachments.MailgunByteAttachment">
+            <summary>
+            An email attachment with content from a byte array.
+            </summary>
+        </member>
+        <member name="M:Mailgun.Attachments.MailgunByteAttachment.#ctor(System.String,System.Byte[])">
+            <summary>
+            Constructs a new MailgunByteAttachment with the specified filename and content.
+            </summary>
+            <param name="filename"></param>
+            <param name="content"></param>
+        </member>
+        <member name="P:Mailgun.Attachments.MailgunByteAttachment.Content">
+            <summary>
+            Gets or sets the content bytes of the attachment.
+            </summary>
+        </member>
+        <member name="M:Mailgun.IMailgunClient.AddDomainAsync(Mailgun.MailgunDomain)">
+            <summary>
+            Adds a new domain.
+            </summary>
+            <param name="domain">The domain to add.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Mailgun.IMailgunClient.AddWebhookAsync(System.String,Mailgun.MailgunWebhook)">
+            <summary>
+            Adds a new webhook to the domain.
+            </summary>
+            <param name="domain">The domain to add a webhook to.</param>
+            <param name="webhook">The webhook configuration.</param>
+            <returns>The created MailgunWebhook object.</returns>
+        </member>
+        <member name="M:Mailgun.IMailgunClient.DeleteDomainAsync(System.String)">
+            <summary>
+            Deletes a domain.
+            </summary>
+            <param name="domain">The domain to delete.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Mailgun.IMailgunClient.DeleteWebhookAsync(System.String,Mailgun.MailgunWebhookType)">
+            <summary>
+            Deletes a webhook from the domain.
+            </summary>
+            <param name="domain">The domain the webhook is configured for.</param>
+            <param name="webhookType">The type of webhook to delete.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Mailgun.IMailgunClient.GetDomainAsync(System.String)">
+            <summary>
+            Gets a single domain.
+            </summary>
+            <param name="domain">The domain to retrieve.</param>
+            <returns>A MailgunDomain object containing the domain details.</returns>
+        </member>
+        <member name="M:Mailgun.IMailgunClient.GetDomainsAsync(System.Nullable{System.Int32},System.Nullable{System.Int32})">
+            <summary>
+            Gets all domains on an account.
+            </summary>
+            <param name="limit">The max number of records to return.</param>
+            <param name="skip">The number of records to skip. Used for paging.</param>
+            <returns>A collection of MailgunDomain objects containing the domain details.</returns>
+        </member>
+        <member name="M:Mailgun.IMailgunClient.GetWebhookAsync(System.String,Mailgun.MailgunWebhookType)">
+            <summary>
+            Gets the webhook configuration for the specified type on the domain.
+            </summary>
+            <param name="domain">The domain to retrieve the webhook for.</param>
+            <param name="webhookType">The webhook type to retrieve.</param>
+            <returns>A MailgunWebhook object with the webhook configuration.</returns>
+        </member>
+        <member name="M:Mailgun.IMailgunClient.GetWebhooksAsync(System.String)">
+            <summary>
+            Gets all of the webhooks configured for a domain.
+            </summary>
+            <param name="domain">The domain to retrieve webhooks for.</param>
+            <returns>A collection of MailgunWebhook objects containing the configured webhooks.</returns>
+        </member>
+        <member name="M:Mailgun.IMailgunClient.ParseAddressesAsync(System.Collections.Generic.IEnumerable{System.String},System.Boolean)">
+            <summary>
+            Parses a collection of addresses and returns the result.
+            </summary>
+            <param name="addresses">The addresses to parse.</param>
+            <param name="syntaxOnly">True to only check the syntax, false to also perform DNS and ESP validation.</param>
+            <returns>A MailgunAddressParseResponse object containing the parsed and unparseable results.</returns>
+        </member>
+        <member name="M:Mailgun.IMailgunClient.SendMessageAsync(Mailgun.MailgunMessage)">
+            <summary>
+            Sends an email message.
+            </summary>
+            <param name="message">The message to send.</param>
+            <returns>A MailgunSentResponse object containing the details about the sent message.</returns>
+        </member>
+        <member name="M:Mailgun.IMailgunClient.UpdateWebhookAsync(System.String,Mailgun.MailgunWebhook)">
+            <summary>
+            Updates a webhook for the domain.
+            </summary>
+            <param name="domain">The domain to update the webhook for.</param>
+            <param name="webhook">The new webhook configuration</param>
+            <returns>The updated MailgunWebhook object.</returns>
+        </member>
+        <member name="M:Mailgun.IMailgunClient.ValidateAddressAsync(System.String)">
+            <summary>
+            Validates an email address.
+            </summary>
+            <param name="address">The address to validate.</param>
+            <returns>A MailgunAddressValidationResponse object containing the details of the validated address.</returns>
+        </member>
+        <member name="M:Mailgun.Internal.Utilities.GetEnumStringValue``1(``0)">
+            <summary>
+            Gets the string value for an enum.
+            </summary>
+            <param name="val"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Mailgun.MailgunClient.createHttpClient(System.Boolean)">
+            <summary>
+            Creates an HttpClient with the defaults set for Mailgun. Be sure to wrap this in a using.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Mailgun.MailgunClient.checkStatusCode(System.Net.Http.HttpResponseMessage)">
+            <summary>
+            Checks the response status code and returns an exception to throw if it is not successful.
+            </summary>
+            <param name="response">The response from the Mailgun request.</param>
+            <returns>An exception if the response has an error code, null otherwise.</returns>
+        </member>
+        <member name="M:Mailgun.MailgunClient.toQueryString(System.Collections.Specialized.NameValueCollection)">
+            <summary>
+            Converts a NameValueCollection to a query string encoding.
+            </summary>
+            <param name="nvc"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Mailgun.MailgunDomain.ToKeyValuePair">
+            <summary>
+            Converts the MailgunDomain into a collection of key-value pairs for serialization.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Mailgun.MailgunMessage.ToMultipartForm">
+            <summary>
+            Converts the MailgunMessage into a MultipartFormDataContent for sending to Mailgun's API.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Mailgun.MailgunMessage.addAddressesToFormContent(System.Net.Http.MultipartFormDataContent,System.Collections.Generic.ICollection{Mailgun.MailgunAddress},System.String)">
+            <summary>
+            Adds a collection of addresses to the multi-part form content under the specified type.
+            </summary>
+            <param name="content"></param>
+            <param name="addresses"></param>
+            <param name="type"></param>
+        </member>
+    </members>
+</doc>
